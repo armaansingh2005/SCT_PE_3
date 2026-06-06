@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PromptFlow AI Studio</title>
+
+    <meta name="description"
+        content="PromptFlow AI Studio - Interactive Prompt Engineering Laboratory">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle">
+        🌙
+    </button>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    AI
+                </div>
+
+                <div>
+                    <h2>PromptFlow</h2>
+                    <p>AI Studio</p>
+                </div>
+
+            </div>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="#dashboard" class="nav-link active">
+                            📊 Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#lab" class="nav-link">
+                            🧠 Prompt Lab
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#examples" class="nav-link">
+                            📄 Examples
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#history" class="nav-link">
+                            🕒 History
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#reflection" class="nav-link">
+                            📝 Reflection
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <h4>Project Progress</h4>
+
+                <div class="progress-item">
+                    <span>Prompt Design</span>
+                    <span>✓</span>
+                </div>
+
+                <div class="progress-item">
+                    <span>Testing</span>
+                    <span>✓</span>
+                </div>
+
+                <div class="progress-item">
+                    <span>Iteration</span>
+                    <span>✓</span>
+                </div>
+
+                <div class="progress-item">
+                    <span>Validation</span>
+                    <span>✓</span>
+                </div>
+
+                <div class="progress-item">
+                    <span>Documentation</span>
+                    <span>✓</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Hero Section -->
+            <section id="dashboard" class="hero">
+
+                <div class="hero-content">
+
+                    <h1>
+                        PromptFlow AI Studio
+                    </h1>
+
+                    <p>
+                        Interactive Prompt Engineering Laboratory for
+                        Data Extraction, Summarization and Format Transformation
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- Analytics -->
+            <section class="analytics-grid">
+
+                <div class="analytics-card">
+
+                    <h3>Prompts Processed</h3>
+
+                    <h2 id="promptCount">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="analytics-card">
+
+                    <h3>JSON Generated</h3>
+
+                    <h2 id="jsonCount">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="analytics-card">
+
+                    <h3>Summaries Created</h3>
+
+                    <h2 id="summaryCount">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="analytics-card">
+
+                    <h3>Transformations</h3>
+
+                    <h2 id="transformCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </section>
+
+            <!-- Prompt Lab -->
+            <section id="lab" class="glass-card">
+
+                <div class="section-header">
+
+                    <h2>
+                        Prompt Engineering Lab
+                    </h2>
+
+                    <p>
+                        Test prompt templates and transform text into
+                        structured outputs.
+                    </p>
+
+                </div>
+
+                <!-- Prompt Versions -->
+                <div class="prompt-versions">
+
+                    <div class="version-card">
+
+                        <h3>Prompt V1</h3>
+
+                        <p>
+                            Convert text into JSON.
+                        </p>
+
+                        <span class="badge warning">
+                            Inconsistent
+                        </span>
+
+                    </div>
+
+                    <div class="version-card">
+
+                        <h3>Prompt V2</h3>
+
+                        <p>
+                            Extract all fields and return JSON.
+                        </p>
+
+                        <span class="badge medium">
+                            Better
+                        </span>
+
+                    </div>
+
+                    <div class="version-card">
+
+                        <h3>Prompt V3</h3>
+
+                        <p>
+                            Extract category, priority and items.
+                            Return valid JSON only.
+                        </p>
+
+                        <span class="badge success">
+                            Reliable
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- Workspace -->
+                <div class="workspace">
+
+                    <!-- Left Panel -->
+                    <div class="panel">
+
+                        <h3>
+                            Prompt Template
+                        </h3>
+
+                        <textarea
+                            id="promptTemplate"
+                            readonly>
+You are a Prompt Engineering Assistant.
+
+TASK:
+Analyze user text.
+
+MODES:
+1. Extract JSON
+2. Summarize Notes
+3. Transform Format
+
+RULES:
+- Keep output structured.
+- Avoid hallucinations.
+- Return only requested format.
+- Preserve important information.
+
+INPUT:
+{{USER_INPUT}}
+                        </textarea>
+
+                        <h3 class="mt-20">
+                            Input Text
+                        </h3>
+
+                        <textarea
+                            id="userInput"
+                            placeholder="Paste meeting notes, tasks, project requirements, bug reports, research notes..."></textarea>
+
+                        <div class="mode-selector">
+
+                            <label>
+                                Processing Mode
+                            </label>
+
+                            <select id="modeSelect">
+
+                                <option value="json">
+                                    JSON Extraction
+                                </option>
+
+                                <option value="summary">
+                                    Smart Summarization
+                                </option>
+
+                                <option value="transform">
+                                    Format Transformer
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="button-group">
+
+                            <button id="generateBtn">
+                                Generate Output
+                            </button>
+
+                            <button id="clearBtn">
+                                Clear
+                            </button>
+
+                        </div>
+
+                    </div>
+                                        <!-- Right Panel -->
+                    <div class="panel">
+
+                        <div class="output-header">
+
+                            <h3>
+                                AI Output
+                            </h3>
+
+                            <div class="output-actions">
+
+                                <button id="copyBtn">
+                                    Copy
+                                </button>
+
+                                <button id="downloadJsonBtn">
+                                    JSON
+                                </button>
+
+                                <button id="downloadTxtBtn">
+                                    TXT
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Processing Status -->
+
+                        <div class="status-container">
+
+                            <div class="status-label">
+                                AI Processing Status
+                            </div>
+
+                            <div class="status-bar">
+
+                                <div
+                                    id="progressFill"
+                                    class="progress-fill">
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="processingStatus"
+                                class="processing-status">
+
+                                Ready
+
+                            </div>
+
+                        </div>
+
+                        <!-- Confidence Score -->
+
+                        <div class="confidence-container">
+
+                            <div class="confidence-top">
+
+                                <span>
+                                    Prompt Reliability
+                                </span>
+
+                                <span id="confidenceValue">
+                                    95%
+                                </span>
+
+                            </div>
+
+                            <div class="confidence-bar">
+
+                                <div
+                                    id="confidenceFill"
+                                    class="confidence-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Output Window -->
+
+                        <pre id="outputBox">
+Waiting for input...
+                        </pre>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Example Gallery -->
+
+            <section
+                id="examples"
+                class="glass-card">
+
+                <div class="section-header">
+
+                    <h2>
+                        Interactive Examples
+                    </h2>
+
+                    <p>
+                        Load sample datasets and test prompt behaviour.
+                    </p>
+
+                </div>
+
+                <div class="examples-grid">
+
+                    <div
+                        class="example-card"
+                        data-example="meeting">
+
+                        <h3>
+                            📋 Meeting Notes
+                        </h3>
+
+                        <p>
+                            Convert meeting discussions into structured output.
+                        </p>
+
+                        <button class="example-btn">
+                            Load Example
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="example-card"
+                        data-example="tasks">
+
+                        <h3>
+                            ✅ Task List
+                        </h3>
+
+                        <p>
+                            Extract tasks and priorities from raw text.
+                        </p>
+
+                        <button class="example-btn">
+                            Load Example
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="example-card"
+                        data-example="project">
+
+                        <h3>
+                            🚀 Project Requirements
+                        </h3>
+
+                        <p>
+                            Transform requirements into machine-readable data.
+                        </p>
+
+                        <button class="example-btn">
+                            Load Example
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="example-card"
+                        data-example="research">
+
+                        <h3>
+                            🔬 Research Notes
+                        </h3>
+
+                        <p>
+                            Summarize long notes into concise insights.
+                        </p>
+
+                        <button class="example-btn">
+                            Load Example
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Example Output Showcase -->
+
+                <div class="example-showcase">
+
+                    <h3>
+                        Assignment Examples
+                    </h3>
+
+                    <div class="showcase-grid">
+
+                        <div class="showcase-card">
+
+                            <h4>
+                                Example 1
+                            </h4>
+
+                            <p>
+                                Meeting Notes → JSON
+                            </p>
+
+                            <pre>
+{
+ "category":"Meeting",
+ "priority":"High",
+ "items":[
+  "Finalize UI",
+  "Client Review"
+ ]
+}
+                            </pre>
+
+                        </div>
+
+                        <div class="showcase-card">
+
+                            <h4>
+                                Example 2
+                            </h4>
+
+                            <p>
+                                Long Notes → Summary
+                            </p>
+
+                            <pre>
+• UI finalized
+• Deployment planned
+• Testing pending
+                            </pre>
+
+                        </div>
+
+                        <div class="showcase-card">
+
+                            <h4>
+                                Example 3
+                            </h4>
+
+                            <p>
+                                Text → Structured Format
+                            </p>
+
+                            <pre>
+{
+ "name":"Armaan",
+ "role":"Developer"
+}
+                            </pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- History Section -->
+
+            <section
+                id="history"
+                class="glass-card">
+
+                <div class="section-header">
+
+                    <h2>
+                        Prompt History
+                    </h2>
+
+                    <p>
+                        Previous prompt executions are stored locally.
+                    </p>
+
+                </div>
+
+                <div
+                    id="historyContainer"
+                    class="history-container">
+
+                    <div class="empty-history">
+
+                        No history available.
+
+                    </div>
+
+                </div>
+
+            </section>
+                        <!-- Reflection Section -->
+
+            <section
+                id="reflection"
+                class="glass-card">
+
+                <div class="section-header">
+
+                    <h2>
+                        Prompt Engineering Reflection
+                    </h2>
+
+                    <p>
+                        Documentation of prompt design, testing and iteration.
+                    </p>
+
+                </div>
+
+                <div class="reflection-grid">
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Problem
+                        </h3>
+
+                        <p>
+                            Initial prompts produced inconsistent outputs.
+                            Some responses omitted important fields while
+                            others returned extra information not required
+                            by the schema.
+                        </p>
+
+                    </div>
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Iteration 1
+                        </h3>
+
+                        <p>
+                            Used a simple prompt:
+                            "Convert text into JSON."
+                            Results varied significantly and lacked
+                            consistency across different inputs.
+                        </p>
+
+                    </div>
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Iteration 2
+                        </h3>
+
+                        <p>
+                            Added field extraction requirements and a
+                            predefined output structure.
+                            Reliability improved but some fields were
+                            still missing.
+                        </p>
+
+                    </div>
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Iteration 3
+                        </h3>
+
+                        <p>
+                            Added strict schema constraints,
+                            formatting rules and validation checks.
+                            Outputs became highly consistent and easier
+                            to parse programmatically.
+                        </p>
+
+                    </div>
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Final Result
+                        </h3>
+
+                        <p>
+                            Reliability improved from approximately
+                            60% to 95% through prompt refinement,
+                            schema enforcement and testing against
+                            multiple real-world examples.
+                        </p>
+
+                    </div>
+
+                    <div class="reflection-card">
+
+                        <h3>
+                            Key Learnings
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Clear instructions improve consistency.
+                            </li>
+
+                            <li>
+                                Explicit schemas reduce ambiguity.
+                            </li>
+
+                            <li>
+                                Prompt iteration is essential for
+                                reliable automation.
+                            </li>
+
+                            <li>
+                                Structured outputs are easier to
+                                integrate into software systems.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Internship Report -->
+
+            <section class="glass-card">
+
+                <div class="section-header">
+
+                    <h2>
+                        Internship Report Generator
+                    </h2>
+
+                    <p>
+                        Generate a project summary report for evaluation
+                        and submission purposes.
+                    </p>
+
+                </div>
+
+                <div class="report-container">
+
+                    <div class="report-card">
+
+                        <h3>
+                            Included Sections
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Prompt Design
+                            </li>
+
+                            <li>
+                                Prompt Versions
+                            </li>
+
+                            <li>
+                                Sample Inputs
+                            </li>
+
+                            <li>
+                                Generated Outputs
+                            </li>
+
+                            <li>
+                                Reflection & Iteration
+                            </li>
+
+                            <li>
+                                Analytics Summary
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="report-card center-card">
+
+                        <button
+                            id="generateReportBtn"
+                            class="report-btn">
+
+                            Generate Project Report
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+
+            <footer class="footer">
+
+                <div class="footer-content">
+
+                    <h3>
+                        PromptFlow AI Studio
+                    </h3>
+
+                    <p>
+                        Interactive Prompt Engineering Laboratory
+                    </p>
+
+                    <p>
+                        Built using HTML, CSS and JavaScript
+                    </p>
+
+                    <span>
+                        Internship Portfolio Project
+                    </span>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
